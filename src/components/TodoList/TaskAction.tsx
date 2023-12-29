@@ -1,10 +1,10 @@
 "use client";
 import { useTransition, useState } from "react";
-import { RemoveTaskForm } from "./RemoveTaskForm";
-import { CompletedTaskForm } from "./CompletedTaskForm";
-import { UpdateButton } from "./UpdateButton";
+import { RemoveTaskForm } from "./RemoveTask/RemoveTaskForm";
+import { CompletedTaskForm } from "./CompletedTask/CompletedTaskForm";
+import { UpdateButton } from "./UpdateTask/UpdateButton";
 import { Input } from "../ui/input";
-import { updateTaskAction } from "./updateTask.action";
+import { updateTaskAction } from "./UpdateTask/updateTask.action";
 import type { Task } from "@/types/task.type";
 
 type Props = {

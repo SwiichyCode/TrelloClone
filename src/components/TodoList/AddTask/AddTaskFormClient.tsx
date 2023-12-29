@@ -1,8 +1,8 @@
 "use client";
 import { useTransition, useRef, FormEventHandler } from "react";
 import { addTaskAction } from "./addTask.action";
-import { SubmitButtonClient } from "../SubmitButtonClient";
-import { Input } from "../ui/input";
+import { SubmitButtonClient } from "../../ui/SubmitButtonClient";
+import { Input } from "../../ui/input";
 
 // Compare this snippet from src/components/Task/AddTaskFormServer.tsx:
 // This component use addTask.action.ts

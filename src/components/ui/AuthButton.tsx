@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getServerAuthSession } from "@/server/auth";
-import { Button } from "./ui/button";
+import { Button } from "./button";
 
 export const AuthButton = async () => {
   const session = await getServerAuthSession();

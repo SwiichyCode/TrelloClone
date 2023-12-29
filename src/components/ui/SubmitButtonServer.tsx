@@ -1,6 +1,6 @@
 "use client";
 import { useFormStatus } from "react-dom";
-import { Button } from "./ui/button";
+import { Button } from "./button";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;

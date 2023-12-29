@@ -1,24 +1,20 @@
 "use client";
 import { useTransition, FormEventHandler } from "react";
-import { SubmitButtonClient } from "../SubmitButtonClient";
-import { completedTaskAction } from "./completedTask.action";
+import { SubmitButtonClient } from "../../ui/SubmitButtonClient";
+import { removeTaskAction } from "./removeTask.action";
 
 type Props = {
-  isCompleted: boolean;
   id: number;
 };
 
-export const CompletedTaskForm = ({ isCompleted, id }: Props) => {
+export const RemoveTaskForm = ({ id }: Props) => {
   const [isPending, startTransition] = useTransition();
 
   const onSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
 
     startTransition(async () => {
-      const result = await completedTaskAction({
-        id: id,
-        completed: !isCompleted,
-      });
+      const result = await removeTaskAction({ id: id });
 
       if (result.error) {
         console.error(result.error);
@@ -31,10 +27,10 @@ export const CompletedTaskForm = ({ isCompleted, id }: Props) => {
     <form onSubmit={onSubmit}>
       <SubmitButtonClient
         type="submit"
-        // pending={isPending}
-        variant={isCompleted ? "success" : "destructive"}
+        pending={isPending}
+        variant="destructive"
       >
-        {isCompleted ? "Completed" : "Incompleted"}
+        Delete
       </SubmitButtonClient>
     </form>
   );

@@ -1,7 +1,7 @@
 import { db } from "@/server/db";
 import { getServerAuthSession } from "@/server/auth";
-import { SubmitButtonServer } from "../SubmitButtonServer";
-import { Input } from "../ui/input";
+import { SubmitButtonServer } from "../../ui/SubmitButtonServer";
+import { Input } from "../../ui/input";
 import { revalidatePath } from "next/cache";
 
 // Compare this snippet from src/components/Task/AddTaskFormClient.tsx:
