@@ -44,6 +44,11 @@ export const authOptions: NextAuthOptions = {
         id: user.id,
       },
     }),
+    // redirect: ({ baseUrl, url }) => {
+    //   // If the user is logged in, redirect to the dashboard.
+    //   // return Promise.resolve(`${baseUrl}/dashboard`);
+    //   return Promise.resolve(`${baseUrl}/`);
+    // },
   },
   adapter: PrismaAdapter(db),
   providers: [
@@ -61,6 +66,10 @@ export const authOptions: NextAuthOptions = {
      * @see https://next-auth.js.org/providers/github
      */
   ],
+  secret: env.NEXTAUTH_SECRET,
+  pages: {
+    signIn: "/auth/signin",
+  },
 };
 
 /**

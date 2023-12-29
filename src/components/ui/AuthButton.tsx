@@ -7,7 +7,7 @@ export const AuthButton = async () => {
 
   return (
     <Button>
-      <Link href={session ? "/api/auth/signout" : "/api/auth/signin"}>
+      <Link href={session ? "/api/auth/signout" : "/auth/signin"}>
         {session ? "Logout" : "Login"}
       </Link>
     </Button>
