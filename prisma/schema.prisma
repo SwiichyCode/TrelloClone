@@ -45,16 +45,17 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String      @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?     @unique
   emailVerified DateTime?
   image         String?
-  role          String    @default("user")
+  role          String      @default("user")
   accounts      Account[]
   posts         Post[]
   sessions      Session[]
   tasks         Task[]
+  workspaces    Workspace[]
 }
 
 model VerificationToken {
@@ -69,6 +70,19 @@ model Task {
   id          Int      @id @default(autoincrement())
   name        String
   completed   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  createdById String
+  createdBy   User     @relation(fields: [createdById], references: [id])
+
+  @@index([name])
+}
+
+model Workspace {
+  id          Int      @id @default(autoincrement())
+  name        String
+  type        String
+  description String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   createdById String
