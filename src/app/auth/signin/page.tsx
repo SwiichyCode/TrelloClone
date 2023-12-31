@@ -1,5 +1,9 @@
-import { SignInButton } from "@/components/ui/SignInButton";
+import { SignInCard } from "@/components/modules/Auth/SignInCard";
 
-export default async function SignInOAuth() {
-  return <SignInButton provider="discord" />;
+export default async function SignInOAuthPage() {
+  return (
+    <div className="flex h-screen w-full items-center justify-center">
+      <SignInCard />
+    </div>
+  );
 }

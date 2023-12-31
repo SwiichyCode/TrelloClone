@@ -11,7 +11,6 @@ export default async function HomePage() {
   return (
     <>
       <AddTaskFormClient />
-      {/* <AddTaskFormServer /> */}
       <TaskList />
     </>
   );

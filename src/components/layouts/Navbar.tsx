@@ -1,4 +1,4 @@
-import { AuthButton } from "../ui/AuthButton";
+import { AuthButton } from "../modules/Auth/AuthButton";
 import { getServerAuthSession } from "@/server/auth";
 
 export const Navbar = async () => {
