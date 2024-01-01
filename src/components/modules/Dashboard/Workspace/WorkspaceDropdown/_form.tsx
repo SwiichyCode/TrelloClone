@@ -46,24 +46,22 @@ export const WorkspaceForm = ({ setOpen }: Props) => {
     startTransition(async () => {
       const payload = await addWorkspace(values);
 
-      if (!payload.errors) {
-        toast({
-          title: "Espace de travail créé avec succès.",
-          description: "Vous pouvez maintenant créer des tableaux.",
-        });
-
-        setOpen(false);
-      }
-
-      if (payload.errors) {
+      if (payload?.error) {
         toast({
           title: "Une erreur est survenue.",
-          description: payload.errors.map((error) => error.message).join(" "),
+          description: payload.error,
         });
-      }
-    });
 
-    form.reset();
+        return;
+      }
+
+      toast({
+        title: "Espace de travail créé avec succès.",
+        description: "Vous pouvez maintenant créer des tableaux.",
+      });
+
+      setOpen(false);
+    });
   };
 
   return (

@@ -1,0 +1,50 @@
+"use server";
+import * as z from "zod";
+import { revalidatePath } from "next/cache";
+import { db } from "@/server/db";
+import { getServerAuthSession } from "@/server/auth";
+import { getRandomGradient } from "@/lib/utils";
+import { formatString } from "@/lib/utils";
+import { formSchema } from "./_schema";
+
+type Inputs = z.infer<typeof formSchema>;
+
+export const addWorkspace = async (data: Inputs) => {
+  try {
+    const session = await getServerAuthSession();
+    const { name, type, description } = formSchema.parse(data);
+
+    if (!session) return { error: "You must be logged in" };
+
+    const workspaceCount = await db.workspace.count({
+      where: { createdById: session?.user.id, name },
+    });
+
+    // if (workspace) {
+    //   throw new Error("Workspace name already exist");
+    // }
+
+    const slug =
+      formatString(name) + (workspaceCount > 0 ? `-${workspaceCount}` : "");
+
+    await db.workspace.create({
+      data: {
+        name,
+        type,
+        description,
+        logo: getRandomGradient(),
+        slug,
+        createdBy: { connect: { id: session.user.id } },
+      },
+    });
+
+    revalidatePath("/dashboard");
+
+    return {
+      status: "success",
+      message: `Espace de travail ajouté avec succès !`,
+    };
+  } catch (error: any) {
+    return { error: error.message };
+  }
+};
