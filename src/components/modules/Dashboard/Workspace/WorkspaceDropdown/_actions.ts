@@ -27,7 +27,7 @@ export const addWorkspace = async (data: Inputs) => {
     const slug =
       formatString(name) + (workspaceCount > 0 ? `-${workspaceCount}` : "");
 
-    await db.workspace.create({
+    const workspace = await db.workspace.create({
       data: {
         name,
         type,
@@ -35,6 +35,14 @@ export const addWorkspace = async (data: Inputs) => {
         logo: getRandomGradient(),
         slug,
         createdBy: { connect: { id: session.user.id } },
+      },
+    });
+
+    await db.workspaceMember.create({
+      data: {
+        workspaceId: workspace.id,
+        userId: session.user.id,
+        role: "OWNER",
       },
     });
 
