@@ -5,11 +5,11 @@ import { db } from "@/server/db";
 export default async function BoardSettingsPage({
   params,
 }: {
-  params: { board: string };
+  params: { slug: string };
 }) {
   const session = await getServerAuthSession();
   const workspace = await db.workspace.findFirst({
-    where: { createdById: session?.user.id, slug: params.board },
+    where: { createdById: session?.user.id, slug: params.slug },
   });
 
   if (!workspace)

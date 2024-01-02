@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { WorkspaceLogo } from "@/components/modules/Workspace/WorkspaceLogo";
 import { WorkspaceName } from "@/components/modules/Workspace/WorkspaceName";
 import type { Workspace } from "@prisma/client";
+import config from "@/constants/url.constant";
 
 interface Props {
   workspace: Workspace[];
@@ -35,7 +36,7 @@ export const WorkspaceAside = ({ workspace }: Props) => {
           <DropdownMenuTrigger asChild>
             <Button variant="secondary" className="w-full">
               <Link
-                href="/dashboard"
+                href={config.url.WORKSPACE_URL(slug as string)}
                 className="flex w-full items-center justify-between"
               >
                 <div className="flex items-center gap-4">
@@ -49,7 +50,7 @@ export const WorkspaceAside = ({ workspace }: Props) => {
           <DropdownMenuContent className="w-64" align="start">
             <DropdownMenuItem>
               <Link
-                href={`dashboard/${slug}`}
+                href={config.url.WORKSPACE_BOARD_HOME_URL(slug as string)}
                 className="flex w-full items-center gap-2"
               >
                 <MdOutlineSpaceDashboard /> Tableaux
@@ -57,7 +58,7 @@ export const WorkspaceAside = ({ workspace }: Props) => {
             </DropdownMenuItem>
             <DropdownMenuItem>
               <Link
-                href="/dashboard"
+                href={config.url.WORKSPACE_MEMBERS_URL(slug as string)}
                 className="flex w-full items-center gap-2"
               >
                 <FaUserFriends /> Membres
@@ -68,8 +69,7 @@ export const WorkspaceAside = ({ workspace }: Props) => {
             </DropdownMenuItem>
             <DropdownMenuItem>
               <Link
-                // href="/dashboard"
-                href={`/dashboard/${slug}/settings`}
+                href={config.url.WORKSPACE_PARAMS_URL(slug as string)}
                 className="flex w-full items-center gap-2"
               >
                 <FaGear /> Paramètres

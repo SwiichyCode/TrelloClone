@@ -21,9 +21,10 @@ import { useRouter } from "next/navigation";
 type Props = {
   name: string;
   slug: string | null; // Fix this null type
+  id: number;
 };
 
-export const DeleteWorkspaceForm = ({ name, slug }: Props) => {
+export const DeleteWorkspaceForm = ({ name, slug, id }: Props) => {
   const [isPending, startTransition] = useTransition();
   const [isDisabled, setIsDisabled] = useState(true);
   const { toast } = useToast();
@@ -47,7 +48,7 @@ export const DeleteWorkspaceForm = ({ name, slug }: Props) => {
 
   const onSubmit = async () => {
     startTransition(async () => {
-      const payload = await deleteWorkspace(slug);
+      const payload = await deleteWorkspace(slug, id);
       router.back();
 
       if (payload?.error) {

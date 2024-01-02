@@ -6,6 +6,7 @@ import { getServerAuthSession } from "@/server/auth";
 import { getRandomGradient } from "@/lib/utils";
 import { formatString } from "@/lib/utils";
 import { formSchema } from "./_schema";
+import config from "@/constants/url.constant";
 
 type Inputs = z.infer<typeof formSchema>;
 
@@ -46,7 +47,7 @@ export const addWorkspace = async (data: Inputs) => {
       },
     });
 
-    revalidatePath("/dashboard");
+    revalidatePath(config.url.WORKSPACE_URL());
 
     return {
       status: "success",

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 import { WorkspaceForm } from "./_form";
 import { WorkspaceLogo } from "../WorkspaceLogo";
@@ -21,6 +22,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { FaChevronDown } from "react-icons/fa";
 import type { Workspace } from "@prisma/client";
+import config from "@/constants/url.constant";
 
 interface Props {
   workspace: Workspace[];
@@ -57,13 +59,15 @@ export const WorkspaceCreate = ({ workspace }: Props) => {
               Vos espaces de travail
             </DropdownMenuLabel>
           )}
-          {workspace.map(({ id, name, logo }) => (
-            <DropdownMenuItem
-              key={id}
-              className="flex cursor-pointer items-center gap-4"
-            >
-              <WorkspaceLogo name={name} logo={logo} />
-              <WorkspaceName workspaceName={name} />
+          {workspace.map(({ id, name, logo, slug }) => (
+            <DropdownMenuItem key={id}>
+              <Link
+                href={config.url.WORKSPACE_BOARD_HOME_URL(slug as string)}
+                className="flex w-full cursor-pointer  items-center gap-4"
+              >
+                <WorkspaceLogo name={name} logo={logo} />
+                <WorkspaceName workspaceName={name} />
+              </Link>
             </DropdownMenuItem>
           ))}
         </DropdownMenuContent>

@@ -1,6 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import type { Theme } from "@/types/theme.type";
+import config from "@/constants/url.constant";
 
 type Props = {
   theme?: Theme;
@@ -8,7 +9,7 @@ type Props = {
 
 export const Logo = ({ theme }: Props) => {
   return (
-    <Link href="/dashboard">
+    <Link href={config.url.WORKSPACE_URL()}>
       <Image
         src={
           theme === "dark"

@@ -16,7 +16,8 @@ type Props = {
 };
 
 export const WorkspaceDelete = ({ workspace }: Props) => {
-  const { name, slug } = workspace;
+  const { name, slug, id } = workspace;
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -35,7 +36,7 @@ export const WorkspaceDelete = ({ workspace }: Props) => {
         </DropdownMenuGroup>
 
         <DropdownMenuGroup>
-          <DeleteWorkspaceForm name={name} slug={slug} />
+          <DeleteWorkspaceForm name={name} slug={slug} id={id} />
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
