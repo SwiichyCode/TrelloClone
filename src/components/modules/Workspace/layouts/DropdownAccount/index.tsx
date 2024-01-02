@@ -1,4 +1,4 @@
-import { AvatarAccount } from "../AvatarAccount";
+import Link from "next/link";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,8 +9,8 @@ import {
   DropdownMenuItem,
   DropdownMenuShortcut,
 } from "@/components/ui/dropdown-menu";
-import Link from "next/link";
-import { LogoutButton } from "../../Auth/LogoutButton";
+import { AvatarAccount } from "@/components/modules/Workspace/layouts/AvatarAccount";
+import { LogoutButton } from "@/components/modules/Auth/LogoutButton";
 import type { Session } from "next-auth";
 
 interface Props {

@@ -1,4 +1,10 @@
 "use client";
+import Link from "next/link";
+import { FaChevronDown } from "react-icons/fa";
+import { FaGear } from "react-icons/fa6";
+import { FaUserFriends } from "react-icons/fa";
+import { IoMdAdd } from "react-icons/io";
+import { MdOutlineSpaceDashboard } from "react-icons/md";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,15 +15,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import { WorkspaceLogo } from "@/components/modules/Workspace/WorkspaceLogo";
+import { WorkspaceName } from "@/components/modules/Workspace/WorkspaceName";
 import type { Workspace } from "@prisma/client";
-import { WorkspaceLogo } from "../WorkspaceLogo";
-import Link from "next/link";
-import { WorkspaceName } from "../WorkspaceName";
-import { FaChevronDown } from "react-icons/fa";
-import { FaGear } from "react-icons/fa6";
-import { FaUserFriends } from "react-icons/fa";
-import { IoMdAdd } from "react-icons/io";
-import { MdOutlineSpaceDashboard } from "react-icons/md";
 
 interface Props {
   workspace: Workspace[];

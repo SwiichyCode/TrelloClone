@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Theme } from "@/types/theme.type";
 
 type Props = {
-  theme: Theme;
+  theme?: Theme;
 };
 
 export const Logo = ({ theme }: Props) => {

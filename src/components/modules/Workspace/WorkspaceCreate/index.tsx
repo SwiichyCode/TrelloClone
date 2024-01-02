@@ -26,7 +26,7 @@ interface Props {
   workspace: Workspace[];
 }
 
-export const WorkspaceDropdown = ({ workspace }: Props) => {
+export const WorkspaceCreate = ({ workspace }: Props) => {
   const [open, setOpen] = useState(false);
 
   return (

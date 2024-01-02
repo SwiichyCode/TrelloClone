@@ -15,7 +15,7 @@ type Props = {
   workspace: Workspace;
 };
 
-export const DeleteWorkspace = ({ workspace }: Props) => {
+export const WorkspaceDelete = ({ workspace }: Props) => {
   const { name, slug } = workspace;
   return (
     <DropdownMenu>

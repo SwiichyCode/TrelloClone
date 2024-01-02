@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react";
+import { Navbar } from "@/components/modules/Workspace/layouts/Navbar";
 import { Toaster } from "@/components/ui/toaster";
-import { Navbar } from "@/components/modules/Dashboard/Navbar";
 
 export default function DashboardLayout({ children }: PropsWithChildren) {
   return (

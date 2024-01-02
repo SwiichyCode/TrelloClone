@@ -1,6 +1,6 @@
 import { db } from "@/server/db";
 import { getServerAuthSession } from "@/server/auth";
-import { WorkspaceAside } from "@/components/modules/Dashboard/Workspace/WorkspaceAside";
+import { WorkspaceAside } from "@/components/modules/Workspace/layouts/Aside";
 
 export default async function DashboardPage() {
   const session = await getServerAuthSession();

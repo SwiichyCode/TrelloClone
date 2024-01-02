@@ -51,7 +51,7 @@ export const authOptions: NextAuthOptions = {
     }),
     redirect: ({ baseUrl, url }) => {
       // If the user is logged in, redirect to the dashboard.
-      return Promise.resolve(`${baseUrl}/dashboard`);
+      return Promise.resolve(`${baseUrl}/workspace`);
     },
   },
   adapter: PrismaAdapter(db),

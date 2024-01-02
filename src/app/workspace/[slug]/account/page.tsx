@@ -1,4 +1,4 @@
-import { DeleteWorkspace } from "@/components/modules/Dashboard/WorkspaceSettings/DeleteWorkspace";
+import { WorkspaceDelete } from "@/components/modules/Workspace/WorkspaceDelete";
 import { getServerAuthSession } from "@/server/auth";
 import { db } from "@/server/db";
 
@@ -19,7 +19,7 @@ export default async function BoardSettingsPage({
 
   return (
     <div className="flex h-screen w-full items-center justify-center">
-      <DeleteWorkspace workspace={workspace} />
+      <WorkspaceDelete workspace={workspace} />
     </div>
   );
 }
