@@ -1,6 +1,6 @@
 import Image from "next/image";
-import type { Theme } from "@/types/theme.type";
 import Link from "next/link";
+import type { Theme } from "@/types/theme.type";
 
 type Props = {
   theme: Theme;

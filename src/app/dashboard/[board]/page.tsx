@@ -1,7 +1,7 @@
 import { getServerAuthSession } from "@/server/auth";
 import { db } from "@/server/db";
 
-export default async function ArrayPage({
+export default async function BoardPage({
   params,
 }: {
   params: { board: string };
@@ -10,8 +10,6 @@ export default async function ArrayPage({
   const board = await db.workspace.findFirst({
     where: { createdById: session?.user.id, slug: params.board },
   });
-
-  console.log(board);
 
   return <div>My array: {params.board}</div>;
 }

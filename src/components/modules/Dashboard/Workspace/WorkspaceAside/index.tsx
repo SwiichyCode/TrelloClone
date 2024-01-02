@@ -68,7 +68,8 @@ export const WorkspaceAside = ({ workspace }: Props) => {
             </DropdownMenuItem>
             <DropdownMenuItem>
               <Link
-                href="/dashboard"
+                // href="/dashboard"
+                href={`/dashboard/${slug}/settings`}
                 className="flex w-full items-center gap-2"
               >
                 <FaGear /> Paramètres
