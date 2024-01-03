@@ -18,3 +18,12 @@ export function getFirstLetter(string: string) {
 export function formatString(string: string) {
   return string.toLowerCase().replace(/\s/g, "-");
 }
+
+export function removeLanguageFromUrl(url: string): string {
+  return url.replace(/^\/[a-z]{2}\//, "/");
+}
+
+export function getLastSegmentFromUrl(url: string): string {
+  const segments = url.split("/");
+  return segments.pop() || "";
+}

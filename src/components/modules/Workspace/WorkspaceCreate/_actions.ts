@@ -21,10 +21,6 @@ export const addWorkspace = async (data: Inputs) => {
       where: { createdById: session?.user.id, name },
     });
 
-    // if (workspace) {
-    //   throw new Error("Workspace name already exist");
-    // }
-
     const slug =
       formatString(name) + (workspaceCount > 0 ? `-${workspaceCount}` : "");
 

@@ -21,7 +21,6 @@ export default async function DashboardPage({ params: { lang } }: Props) {
 
   return (
     <main className="m-auto max-w-6xl">
-      {intl.test}
       <WorkspaceAside workspace={workspace} />
     </main>
   );
