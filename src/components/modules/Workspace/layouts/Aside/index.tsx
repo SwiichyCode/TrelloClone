@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useOptimistic } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { FaGear } from "react-icons/fa6";
 import { FaUserFriends } from "react-icons/fa";
@@ -25,6 +26,11 @@ interface Props {
 }
 
 export const WorkspaceAside = ({ workspace }: Props) => {
+  const [optimisticWorkspace, addOptimisticWorkspace] = useOptimistic(
+    workspace,
+    (state, newWorkspace: Workspace) => [...state, newWorkspace],
+  );
+
   return (
     <nav className="flex max-w-64 flex-col gap-2 py-8">
       {/* <DropdownMenuSeparator /> */}
