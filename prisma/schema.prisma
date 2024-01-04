@@ -88,7 +88,7 @@ model Workspace {
   createdAt   DateTime          @default(now())
   updatedAt   DateTime          @updatedAt
   createdById String
-  slug        String?
+  slug        String            @unique
   createdBy   User              @relation(fields: [createdById], references: [id])
   members     WorkspaceMember[]
 

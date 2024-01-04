@@ -1,11 +1,15 @@
 "use server";
 import * as z from "zod";
 import { revalidatePath } from "next/cache";
-import { db } from "@/server/db";
 import { getServerAuthSession } from "@/server/auth";
 import { getRandomGradient } from "@/lib/utils";
 import { formatString } from "@/lib/utils";
 import { formSchema } from "./_schema";
+import {
+  createWorkspace,
+  createWorkspaceMember,
+  getWorkspaceCount,
+} from "prisma/querys/workspace.query";
 import config from "@/constants/url.constant";
 
 type Inputs = z.infer<typeof formSchema>;
@@ -17,30 +21,27 @@ export const addWorkspace = async (data: Inputs) => {
 
     if (!session) return { error: "You must be logged in" };
 
-    const workspaceCount = await db.workspace.count({
-      where: { createdById: session?.user.id, name },
+    const workspaceCount = await getWorkspaceCount({
+      createdById: session.user.id,
+      name,
     });
 
     const slug =
       formatString(name) + (workspaceCount > 0 ? `-${workspaceCount}` : "");
 
-    const workspace = await db.workspace.create({
-      data: {
-        name,
-        type,
-        description,
-        logo: getRandomGradient(),
-        slug,
-        createdBy: { connect: { id: session.user.id } },
-      },
+    const workspace = await createWorkspace({
+      name,
+      type,
+      description,
+      logo: getRandomGradient(),
+      slug,
+      createdBy: { connect: { id: session.user.id } },
     });
 
-    await db.workspaceMember.create({
-      data: {
-        workspaceId: workspace.id,
-        userId: session.user.id,
-        role: "OWNER",
-      },
+    await createWorkspaceMember({
+      workspaceId: workspace.id,
+      userId: session.user.id,
+      role: "OWNER",
     });
 
     revalidatePath(config.url.WORKSPACE_URL());

@@ -13,14 +13,14 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { formSchema } from "./_schema";
-import { deleteWorkspace } from "./_action";
+import { deleteWorkspaceAction } from "./_action";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
 
 type Props = {
   name: string;
-  slug: string | null; // Fix this null type
+  slug: string;
   id: number;
 };
 
@@ -48,7 +48,7 @@ export const DeleteWorkspaceForm = ({ name, slug, id }: Props) => {
 
   const onSubmit = async () => {
     startTransition(async () => {
-      const payload = await deleteWorkspace(slug, id);
+      const payload = await deleteWorkspaceAction(slug, id);
       router.back();
 
       if (payload?.error) {
