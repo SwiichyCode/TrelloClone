@@ -44,7 +44,9 @@ export const WorkspaceForm = ({ setOpen }: Props) => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     startTransition(async () => {
-      const payload = await addWorkspace(values);
+      const payload:
+        | { error?: string; status?: string; message?: string }
+        | undefined = await addWorkspace(values);
 
       if (payload?.error) {
         toast({

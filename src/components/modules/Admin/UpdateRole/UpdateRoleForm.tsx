@@ -1,8 +1,8 @@
 "use client";
-import { useTransition, FormEventHandler } from "react";
-import { User } from "@prisma/client";
+import { useTransition, type FormEventHandler } from "react";
 import { SubmitButtonClient } from "@/components/ui/SubmitButtonClient";
 import { updateRoleAction } from "./updateRole.action";
+import type { User } from "@prisma/client";
 
 type Props = {
   user: User;

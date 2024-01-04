@@ -1,7 +1,7 @@
 import { db } from "@/server/db";
 import { getServerAuthSession } from "@/server/auth";
 import { WorkspaceAside } from "@/components/modules/Workspace/layouts/Aside";
-import { Locale, getDictionary } from "../dictionaries/dictionaries";
+import { type Locale, getDictionary } from "../dictionaries/dictionaries";
 
 type Props = {
   params: {
@@ -17,7 +17,8 @@ export default async function DashboardPage({ params: { lang } }: Props) {
     },
   });
 
-  const intl = await getDictionary(lang);
+  // const intl = await getDictionary(lang);
+  await getDictionary(lang);
 
   return (
     <main className="m-auto max-w-6xl">

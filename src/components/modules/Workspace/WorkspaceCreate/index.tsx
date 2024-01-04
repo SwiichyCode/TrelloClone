@@ -62,7 +62,7 @@ export const WorkspaceCreate = ({ workspace }: Props) => {
           {workspace.map(({ id, name, logo, slug }) => (
             <DropdownMenuItem key={id}>
               <Link
-                href={config.url.WORKSPACE_BOARD_HOME_URL(slug as string)}
+                href={config.url.WORKSPACE_BOARD_HOME_URL(slug!)}
                 className="flex w-full cursor-pointer  items-center gap-4"
               >
                 <WorkspaceLogo name={name} logo={logo} />

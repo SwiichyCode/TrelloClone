@@ -35,8 +35,7 @@ export const WorkspaceMembersNavigation = ({
     isActive && "bg-[#1C2B41] text-[#5498F7]";
 
   return (
-    <aside className="font-semibold">
-      <h2 className="mb-4 text-xl">Membres</h2>
+    <aside className="min-w-64  font-semibold">
       <div className="flex flex-row gap-6">
         <div className="flex flex-col gap-2">
           <h1 className="px-3 py-2 text-xs">

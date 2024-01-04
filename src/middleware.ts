@@ -1,16 +1,19 @@
 import { withAuth } from "next-auth/middleware";
 import { match } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
-let defaultLocale = "en";
-let locales = ["en", "fr"];
+// Todo:
+// - ADD chained middleware logic
+
+const defaultLocale = "en";
+const locales = ["en", "fr"];
 
 // Get the preferred locale, similar to above or using a library
 function getLocale(request: NextRequest) {
   const acceptedLanguage = request.headers.get("accept-language") ?? undefined;
-  let headers = { "accept-language": acceptedLanguage };
-  let languages = new Negotiator({ headers }).languages();
+  const headers = { "accept-language": acceptedLanguage };
+  const languages = new Negotiator({ headers }).languages();
 
   return match(languages, locales, defaultLocale);
 }

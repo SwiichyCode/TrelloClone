@@ -49,7 +49,7 @@ export const addWorkspace = async (data: Inputs) => {
       status: "success",
       message: `Espace de travail ajouté avec succès !`,
     };
-  } catch (error: any) {
-    return { error: error.message };
+  } catch (error) {
+    if (error instanceof Error) return { error: error.message };
   }
 };

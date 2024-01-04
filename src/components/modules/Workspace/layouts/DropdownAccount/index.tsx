@@ -23,7 +23,7 @@ export const DropdownAccount = ({ session }: Props) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <AvatarAccount imageUrl={image as string} className="cursor-pointer" />
+        <AvatarAccount imageUrl={image!} className="cursor-pointer" />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="end">
         <DropdownMenuGroup>

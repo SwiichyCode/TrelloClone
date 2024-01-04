@@ -49,7 +49,7 @@ export const authOptions: NextAuthOptions = {
         role: user.role,
       },
     }),
-    redirect: ({ baseUrl, url }) => {
+    redirect: ({ baseUrl }) => {
       // If the user is logged in, redirect to the dashboard.
       return Promise.resolve(`${baseUrl}/workspace`);
     },

@@ -3,7 +3,7 @@ import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { signIn } from "next-auth/react";
 import { type VariantProps, cva } from "class-variance-authority";
-import type { AuthProvider } from "@/types/authProvider.type";
+import type { AuthProvider } from "@/types";
 
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -55,7 +55,7 @@ const SignInButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Comp
-        className={cn(buttonVariants({ variant }))}
+        className={cn(buttonVariants({ variant }), className)}
         onClick={handleSignIn}
         ref={ref}
         {...props}

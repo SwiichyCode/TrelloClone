@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { type PropsWithChildren } from "react";
 import { Navbar } from "@/components/modules/Workspace/layouts/Navbar";
 import { Toaster } from "@/components/ui/toaster";
 

@@ -7,9 +7,9 @@ export default async function BoardPage({
   params: { board: string };
 }) {
   const session = await getServerAuthSession();
-  const board = await db.workspace.findFirst({
-    where: { createdById: session?.user.id, slug: params.board },
-  });
+  // const board = await db.workspace.findFirst({
+  //   where: { createdById: session?.user.id, slug: params.board },
+  // });
 
   return <div>My array: {params.board}</div>;
 }

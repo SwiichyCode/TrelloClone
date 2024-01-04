@@ -18,12 +18,16 @@ export default async function WorkspaceMembersLayout({
 
   return (
     <div className="m-auto flex w-full max-w-6xl gap-12 py-8">
-      <WorkspaceMembersNavigation
-        workspaceMembers={workspaceMembers}
-        params={params.slug}
-      />
-
-      {children}
+      <div className="flex w-full flex-col gap-4">
+        <h2 className="mb-4 text-xl font-semibold">Membres</h2>
+        <div className="flex w-full max-w-6xl gap-12">
+          <WorkspaceMembersNavigation
+            workspaceMembers={workspaceMembers}
+            params={params.slug}
+          />
+          {children}
+        </div>
+      </div>
     </div>
   );
 }

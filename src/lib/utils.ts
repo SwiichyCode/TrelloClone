@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export function getRandomGradient() {
   const randomIndex = Math.floor(Math.random() * gradients.length);
-  return gradients[randomIndex] || "from-blue-400 to-blue-600";
+  return gradients[randomIndex] ?? "from-blue-400 to-blue-600";
 }
 
 export function getFirstLetter(string: string) {
@@ -25,5 +25,5 @@ export function removeLanguageFromUrl(url: string): string {
 
 export function getLastSegmentFromUrl(url: string): string {
   const segments = url.split("/");
-  return segments.pop() || "";
+  return segments.pop() ?? "";
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { Theme } from "@/types/theme.type";
 import config from "@/constants/url.constant";
+import type { Theme } from "@/types";
 
 type Props = {
   theme?: Theme;
