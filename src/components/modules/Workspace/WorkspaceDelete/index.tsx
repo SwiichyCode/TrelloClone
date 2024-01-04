@@ -1,15 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
   DropdownMenuLabel,
-  DropdownMenuSubTrigger,
   DropdownMenuGroup,
 } from "@/components/ui/dropdown-menu";
 import { DeleteWorkspaceForm } from "./_form";
-import { Workspace } from "@prisma/client";
+import type { Workspace } from "@prisma/client";
 
 type Props = {
   workspace: Workspace;

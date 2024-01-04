@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { VariantProps, cva } from "class-variance-authority";
+import { type VariantProps, cva } from "class-variance-authority";
 
 const variants = cva("pb-4 mb-8", {
   variants: {

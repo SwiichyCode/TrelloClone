@@ -1,4 +1,4 @@
-import * as z from "zod";
+import type * as z from "zod";
 import { useTransition } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
